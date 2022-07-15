@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+</head>
+<body>
+    <div class="container border shadow p-3 mb-5" style="margin-top: 3rem;">
+        <h3 style="text-align: center; font-size: 36px;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;" >MODIFICAR PRODUCTO</h3>
+        <form action="{%url 'productos:modificar_producto'%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="id_producto" value="{{producto.id}}"  hidden >
+            <br>
+            <label for="">Tipo de producto</label><br>
+            <select class="form-control" name="tipoproducto" required>
+                <option value="{{producto_t.id}}">{{producto_t.nombre}}</option>
+                {%for p in tipo_producto %}
+                <option value="{{p.id}}">{{p.nombre}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="">Nombre</label><br>
+            <input  class="form-control" type="" value="{{producto.nombre}}" name="Nombre"><br>
+            <label for="">Precio</label><br>
+            <input class="form-control" type="number" value="{{producto.precio}}" name="precio"><br>
+            <label for="">Precio costo</label><br>
+            <input class="form-control" type="number"  value="{{producto.precio_costo}}" name="preciocosto"><br>
+            <label for="">Marca</label><br>
+            <select class="form-control" name="marcas" required>
+                <option value="{{marca_p.id}}">{{marca_p.nombre}}</option>
+                {%for j in marca %}
+                <option value="{{j.id}}">{{j.nombre}}</option>
+                {% endfor %}
+            </select>
+            <label for="">Imagen</label><br>
+            <input  type="file" class="hidden"  type="file"  name="imagen"><br><br>
+            <label for="">Descripcion</label><br>
+            <textarea class="form-control"  name="descripcion" >{{producto.descripcion}}</textarea><br>
+            <input type="submit" class="btn btn-success btn-m " value="Guardar">
+            <a href="{%url 'productos:administracion'%}"type="button" class="btn btn-dark">Volver a administracion</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+    <title>Administracion MG</title>
+  </head>
+  <body> 
+    <h3 style="margin-top: 3rem; text-align: center; font-size: 36px;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;" >ADMINITRACIÓN mascotas</h3>
+    <div class="container border shadow p-3 mb-5" style="margin-top:2rem;">
+        <table class="table table-hover table-responsive-sm border">
+            <thead>
+              <tr>
+                <th scope="col">Tipo de producto</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>         
+    {%load humanize%}
+            {%for p in listado_clientes %}
+              <tr>
+                <th scope="row">{{p.tipo_producto}}</th>
+                <th scope="row">{{p.marca}}</th>
+                <td>{{p.nombre}}</td>
+                <td>${{p.precio|intcomma}}</td>
+                <td><a href="{%url 'productos:modificar' p.id %}" type="button" class="btn btn-primary">Modificar</a></td>
+                <td><a href="{%url 'productos:eliminar' p.id %}"type="button"  class="btn btn-danger">Eliminar</a></td>
+              </tr>
+            </tbody>
+            {%endfor%}
+          </table>
+          <a href="{%url 'productos:agregar_producto'%}"type="button" class="btn btn-primary">Agregar Productos</a>
+          <a href="{%url 'productos:index'%}"type="button" class="btn btn-dark">Volver al inicio</a>
+    </div>
+  </body>
+</html>

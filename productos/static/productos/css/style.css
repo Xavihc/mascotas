@@ -1,0 +1,96 @@
+#titulo 
+{
+  
+    font-size: 48px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;color: black;
+    
+
+}
+
+#pie ul li a img{
+    width: 40px;
+}
+
+.precio{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, 'Franklin Gothic Medium', 'Arial Narrow', Arial, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.card{
+    text-align:justify;
+}
+
+#carrito {
+    width: 25px; 
+}
+
+
+#titulos 
+{
+   
+    font-size: 26px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+
+}
+.descripcion{
+    text-align: justify;
+}
+
+#control{
+
+    margin-bottom: 2rem;
+}
+
+#c{
+    padding-top: 2rem;
+}
+
+#im{
+
+    margin-bottom: 2rem;
+}
+
+.separacion{
+    padding-top:2rem ;
+    margin-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+#sep{
+    padding-bottom: 2rem;
+}
+
+#inicio-de-sesion{
+
+    padding-top: 16rem;
+    
+}
+
+.cake{
+
+    margin-bottom: 2rem;
+}
+
+
+#separador{
+   margin-top: 4rem;
+   margin-bottom: 8rem;
+
+}
+
+.ordenado{
+    text-align:justify;
+}
+
+#nosotros{ 
+    font-size: 48px;
+    font-style: italic;
+    
+}
+#resultado{
+    margin-left: 15px;
+    color: red;
+   
+}
+#confirmar{
+    margin-left: 16px;
+    color: red;
+}

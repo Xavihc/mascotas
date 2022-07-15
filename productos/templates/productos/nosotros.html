@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assents/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="assents/css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="assents/css/barraBusqueda.css">
+    <link rel="stylesheet" href="assents/css/menu.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="assents/img/logo.png"/>
+    <title>Pro Gamer</title>
+</head>
+<body class="darkmode">
+    <header class="header">
+        <div class="theme-switch-wrapper">
+            <label for="checkbox" class="theme-switch">
+                <input class="theme-input" type="checkbox" id="checkbox">
+                <div class="slider round">
+
+                </div>
+            </label>
+        </div>
+
+        <div id="sideNavigation" class="sidenav">
+            <a  href="javascript:void(0)" class="closebtn barra__lateral " onclick="closeNav()">&times;</a>
+            <a class="barra__lateral"  c href="nosotros.html">Nosotros</a>
+            <a class="barra__lateral"  c href="tienda.html">Tienda</a>
+            <a class="barra__lateral"  c href="contacto.html">Contacto</a>   
+            
+            <div>
+                <button class="boton" id="bdark">Modo Oscuro</button>
+            </div>
+        </div>
+ 
+    <nav class="topnav">
+    <a href="#" onclick="openNav()">
+        <svg width="30" height="30" id="icoOpen">
+            <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+            <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+            <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+        </svg>
+    </a>
+    </nav>
+
+    <form action="" class="search">
+        <!-- We'll have a button that'll make the search input appear, a submit button and the input -->
+        
+        <!-- Alos, a label for it so that we can style it however we want it-->
+        <input id="submit" value="" type="submit">
+        <label for="submit" class="submit"></label>
+        
+        <!-- trigger button and input -->
+        <a href="javascript: void(0)" class="icon"></a>
+        <input type="search" name="Search" id="search" placeholder="Search">
+    </form>
+    </header>
+            <main class="contenedor">
+        
+                <div class="grid__nosotros"> 
+                    <div class="mostrar__imagen">
+                        <img class="nosotros-informacion" src="assents/img/nosotros1.jpg" alt="imagen nosotros">
+                    </div>
+                    <div class="mostrar__informacion">
+                        <h4 class="no-margin nombre__nosotros">Javier Hermosilla  </h4>
+                        <p class="nosotros__descripcion">Edad: <span class="nombre__info">22</span></p>
+                        <p class="nosotros__descripcion"><span class="nombre__info">Descricion: </span>Estudiante en Ingenieria en Informatica 2do año</p>
+                    </div>
+                </div>
+                <div class="grid__nosotros"> 
+                    <div class="mostrar__imagen">
+                        <img class="nosotros-informacion" src="assents/img/nosotros2.jpg" alt="imagen nosotros">
+                    </div>
+                    <div class="mostrar__informacion">
+                        <h4 class="no-margin nombre__nosotros">Mauricio Cabrera</h4>
+                        <p class="nosotros__descripcion">Edad: <span class="nombre__info">20</span></p>
+                        <p class="nosotros__descripcion"><span class="nombre__info">Descricion: </span>Estudiante en Ingenieria en Informatica 2do año</p>
+                    </div>
+                </div>
+                <div class="grid__nosotros">   
+                    <div class="mostrar__imagen">
+                        <img class="nosotros-informacion" src="assents/img/nosotros3.jpg" alt="imagen nosotros">
+                    </div>
+                    <div class="mostrar__informacion">
+                        <h4 class="no-margin nombre__nosotros">Bastian Barrera</h4>
+                        <p class="nosotros__descripcion">Edad: <span class="nombre__info">20</span></p>
+                        <p class="nosotros__descripcion"><span class="nombre__info">Descricion: </span>Estudiante en Ingenieria en Informatica 2do año</p>
+                    </div>
+                </div>
+            </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin">Pro<span class="logo__bold">Gamer</span></h1>
+                </a>
+    
+                <nav class="navegacion">
+                    <a href="nosotros.html" class="navegacion__enlace">Nosotros</a>
+                    <a href="tienda.html" class="navegacion__enlace">tienda</a>
+                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+                </nav>
+            </div>        
+        </div>
+    </footer>
+
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="assents/js/scripts.js"></script>
+    <script src="assents/js/menuLateral.js"></script>
+    <script src="assents/js/cambioColor.js"></script>
+    <script src="assents/js/modoOscuro.js"></script>
+</body>
+</html>

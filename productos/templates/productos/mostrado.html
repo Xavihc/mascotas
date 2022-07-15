@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+    <title>Mostrar</title>
+</head>
+<body>
+    <nav style="background-color: black;">
+        <a class="navbar-brand" href="#">
+        </a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+        <a class="navbar-brand letra_negra" href="{%url 'productos:index'%}"> <img src="{% static 'productos/img/logo1.png'%}" width="30"
+                height="30" class="d-inline-block align-top" alt="">
+            mascotas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'productos:index'%}">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Acerca de la tienda</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Producto
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contactenos</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{%url 'productos:mostrar_productos'%}" method="POST">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
+                    name="Buscar">
+                <input type="submit" class="btn btn-outline-dark my-2 my-sm-0" value="Buscar"></input>
+        </div>
+    </nav>
+    <div class=" container shadow p-3 mb-5 bg-white rounded" style="margin-top: 2rem;">
+        <div  class="container ">
+          <div class="row featurette">
+            <div class="justify-content-center  col-md-6 order-md-1">
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{producto.imagen.url}}" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                </div>
+          </div>
+            <div class="col-md-6 order-md-2">
+                {%load humanize%}
+              <h2  class="featurette-heading">{{producto.nombre}}</h2>
+              <div><h4 class="text-success">${{producto.precio|intcomma}} / CLP</h4></div>
+
+              <p class="lead">{{producto.descripcion}}</p>
+              <br>
+              <div>
+              <a href="{%url 'productos:pago' producto.id%}"><button type="button" class="btn btn-success">Ir al pago</button></a>
+              </div>
+            </form>
+              <hr class="container featurette-divider">
+              <p><span><strong>Retiro en tienda</strong><br>Por contingencia solo con agendamiento</span></p>
+            </div>
+          </div>
+        </div>  
+      </div>
+      <hr class=" featurette-divider" style="margin-bottom:9rem;">
+</body>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <h6>Nuestras redes sociales</h6>
+    <h4></h4>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.instagram.com/"><img
+                    src="{% static 'productos/img/instagram (1).png'%}" alt="" width="40" title="NUESTRO INSTAGRAM"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><img
+                    src="{% static 'productos/img/facebook-logo.png'%}" alt="" width="40" title="NUESTRO FACEBOOK"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://twitter.com/?lang=es"><img
+                    src="{% static 'productos/img/twitter (1).png'%}" alt="" width="40" title="NUESTRO TWITTER"></a>
+        </li>
+    </ul>
+    <p class="mb-1">&copy; mascotas. Todos los derechos reservados</p>
+</footer>
+</html>

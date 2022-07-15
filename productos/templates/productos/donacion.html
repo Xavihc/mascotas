@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+    <title>mascotas</title>
+</head>
+<body>
+    <div class="container border shadow p-3 mb-5" style="margin-top: 3rem;">
+        <form class="form-group" action="{%url 'productos:donacion'%}" method="POST">
+            {% csrf_token %}
+            <div class="alert alert-success" role="alert">
+                {{mensaje}}
+            </div>
+            <h3 style="text-align: center;">DONACION mascotas</h3>
+            {% if user.is_authenticated %}
+            <label for=""> Nombre </label><br>
+            <input class="form-control" type="text" name="name" value= "{{user.name}}" >
+            <label for=""> Cantidad ($) </label><br>
+            <input class="form-control" type="text" name="cantidad">
+            {% else %}
+            <label for=""> Nombre </label><br>
+            <input class="form-control" type="text" name="name">
+            <label for=""> Cantidad ($) </label><br>
+            <input class="form-control" type="text" name="cantidad">
+            {% endif %}
+            <input class="btn btn-success btn-m mt-1" type="submit" value="Confirmar">
+        </form>
+    </div>
+</body>
+</html>

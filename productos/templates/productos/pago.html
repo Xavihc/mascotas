@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'productos/js/codigos.js'%}"></script>
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+</head>
+<body>
+    <nav style="background-color: black;">
+        <a class="navbar-brand" href="#">
+        </a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+
+        <a class="navbar-brand letra_negra" href="#"> <img src="{% static 'productos/img/logo1.png'%}" width="30"
+                height="30" class="d-inline-block align-top" alt="">
+            mascotas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'productos:index'%}">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Acerca de la tienda</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Producto
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contactenos</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{%url 'productos:mostrar_productos'%}" method="POST">
+                
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
+                    name="Buscar">
+                <input type="submit" class="btn btn-outline-dark my-2 my-sm-0" value="Buscar"></input>
+            </form>
+        </div>
+    </nav>
+    <div class="border container shadow-sm p-3 mb-5 bg-white" style="margin-top: 2rem;">
+        <div class="container">
+            <div id="titulo" i class="navbar justify-content-center navbar-white bg-white">
+                <div href="#"  style="color: black; font-size: 26px; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">PAGO DEL PEDIDO</div>
+            </div>
+        </div>
+        <div class="container  ">
+            <div class="row featurette">
+                <div id="c" class="justify-content-center   col-md-6 order-md-1 ">
+                    <form action="{%url 'productos:index'%}" method= "POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 ">
+                                <label>Nombre</label>
+                                <input type="text" id="txt-nombre" class="form-control" name="name" value="{{user.name}}"required placeholder="Maria">
+                                <span id="error-nombre" style="color:red;visibility: hidden;">Ingrese un nombre*</span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Región</label>
+                                <select class="form-control" disabled>
+                                    <option value="">Región Metropolitana de Santiago</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Comuna</label>
+                                <select id="Comuna" class="form-control" required>
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Isla de Maipo</option>
+                                    <option value="2">Talagante</option>
+                                    <option value="3">Lo Espejo</option>
+                                    <option value="4">Peñaflor</option>
+                                    <option value="5">Padre Hurtado</option>
+                                    <option value="6">Puente alto</option>
+                                    <option value="7">La Pincoya</option>
+                                    <option value="8">Las Condes</option>
+                                    <option value="9">Pudahuel</option>
+                                    <option value="10">Buín</option>
+                                    <option value="11">El Monte</option>
+                                    <option value="12">La Cisterna</option>
+                                </select>
+                                <span id="error-comuna" style="color:red;visibility: hidden;">Seleccione una
+                                    comuna*</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Su E-mail</label>
+                            <input type="email" id="email" class="form-control" required
+                                placeholder="Ejemplo@email.com" value="{{user.email}}">
+                            <span id="error-email" style="color:red;visibility: hidden;">Ingrese un correo*</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Su Dirección</label>
+                            <input type="text" id="direccion" class="form-control" required
+                                placeholder="Av Libertador Bernardo O'Higgins, Santiago, Región Metropolitana">
+                            <span id="error-direccion" style="color:red;visibility: hidden;">Ingrese una
+                                dirección*</span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Su Número de casa/depto</label>
+                                <input type="number" id="numero-casa-dept" class="form-control" required
+                                    placeholder="12345">
+                                <span id="error-numero" style="color:red;visibility: hidden;">Ingrese una número*</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Su Teléfono</label>
+                                <input type="tel" id="telefono" placeholder="9 4523 6782"
+                                    pattern="[0-9]{1} [0-9]{4} [0-9]{4}" class="form-control" required>
+                                <span id="error-telefono" style="color:red;visibility: hidden;">Ingrese su
+                                    telefono*</span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label>Notas del pedido (opcional)</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <input class="btn btn-success" type="reset" value="Reiniciar formulario">
+                </div>
+                <div class=" justify-content-center  col-md-6 order-md-2 border shadow p-3 mb-5 bg-white ">
+                    <h2 class="text-center featurette-heading">TU PEDIDO</h2>
+                    <div class="container">
+                        <hr class=" featurette-divider">
+                    </div>
+                    <div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 ">
+                                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="{{producto.imagen.url}}" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <h3 class="featurette-heading">{{producto.nombre}}</h3>
+
+                                <DIv class="container">
+                                    <hr class="container featurette-divider">
+                                </DIv>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+                        <DIv class="container">
+                            <hr class="container featurette-divider">
+                        </DIv>
+                        <div>
+                            <DIv class="form-check form-check-inline">
+                                <H5 class="featurette-heading ">MEDIO DE PAGO </H5>
+                            </DIv>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    value="option1">
+                                <label class="form-check-label" for="inlineRadio1">WebPay</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Deposito</label>
+                            </div>
+                        </div>
+                        <div>
+                            <DIv class="container">
+                                <hr class="container featurette-divider">
+                            </DIv>
+                            {%load humanize%}
+                            <H5 class="featurette-heading">TOTAL :${{producto.precio|intcomma}} /CLP</H5>
+                            <DIv class="container">
+                                <hr class="container featurette-divider">
+                            </DIv>
+                        </div>
+                        <button type="submit" id="Finalizar-compra" class="btn btn-success btn-lg btn-block"
+                            onclick="validarCampos()">Finalizar
+                            compra</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <h6>Nuestras redes sociales</h6>
+    <h4></h4>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.instagram.com/"><img
+                    src="{% static 'productos/img/instagram (1).png'%}" alt="" width="40" title="NUESTRO INSTAGRAM"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><img
+                    src="{% static 'productos/img/facebook-logo.png'%}" alt="" width="40" title="NUESTRO FACEBOOK"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://twitter.com/?lang=es"><img
+                    src="{% static 'productos/img/twitter (1).png'%}" alt="" width="40" title="NUESTRO TWITTER"></a>
+        </li>
+    </ul>
+    <p class="mb-1">&copy; mascotas. Todos los derechos reservados</p>
+</footer>
+</html>

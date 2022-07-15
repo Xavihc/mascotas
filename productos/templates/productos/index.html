@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/syle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/carousel.css'%}">
+    <link rel="shortcut icon" href="{% static 'productos/img/logo1.png'%}">
+    <title>mascotas</title>
+</head>
+<body style="color: #0D1D66">
+    <nav style="background-color: rgb(4, 20, 246);">
+        <table>     
+                <tr>
+                    {% if user.is_authenticated %}
+                    <th>
+                        <a class="nav-link" style="color: rgb(14, 9, 175);" href="{% url 'logout' %}">Cerrar sesión</a>
+                    <th>
+                        <th>
+                            <a class="nav-link" href="# " style="color: rgb(13, 188, 232);">|</a>
+                        <th>
+                    <th>
+                        <a class="nav-link" href="# " style="color: rgb(11, 206, 245);">{{user.email }}</a>
+                    <th>
+                    {% else %}
+                    <th>
+                        <a class="nav-link" href="{%url 'productos:frm_iniciar_sesion'%}" style="color: white;">iniciar
+                            sesión</a>
+                    <th>
+                    {% endif %}
+                <tr>
+        </table>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+        
+        <a class="navbar-brand letra_negra" href="{%url 'productos:index'%}"> <img src="{% static 'productos/img/logo1.png'%}" width="30"
+        height="30" class="d-inline-block align-top" alt="">mascotas</a>
+        <a  href="javascript:void(0)" class="closebtn barra__lateral " onclick="closeNav()">&times;</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'productos:index'%}">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Acerca de la tienda</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contactenos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li class="nav-item active">
+                    {% if user.is_authenticated %}
+                    {% if perms.app.delete_productos%}
+                    {% if perms.app.change_productos%}
+                   
+                    <a class="nav-link" href="{%url 'productos:administracion'%}">Administración</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{%url 'productos:mostrar_productos'%}" method="POST">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"
+                    name="Buscar">
+                <input type="submit" class="btn btn-outline-dark my-2 my-sm-0" value="Buscar"></input>
+            </form>
+        </div>
+    </nav>
+
+    <div id="carouselExampleCaptions" class="boton carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'productos/img/animal1.jpg'%}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1><a href="{%url 'productos:registro'%}" class="boton btn btn-success btn-lg inicio__opciones">Registrate</a></h1>
+                    <p class="color_desc">¡Tenemos muchos descuentos para ti!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'productos/img/animal2.jpg'%}" class="d-block w-100" alt="...">
+                <div class="boton carousel-caption d-none d-md-block">
+                    <h1><a href="{%url 'productos:donacion'%}" class="boton btn btn-success btn-lg inicio__opciones">Suscribete</a></h1>
+                    <p class="color_desc">Al donar te suscribiras automaticamente.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'productos/img/animal3.jpg'%}" class="animales" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1><button type="button" class="boton btn btn-success btn-lg">¡Pide ya!</button></h1>
+                    <p class="color_desc">Las mejores bandanas del mercado</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div id="nosotros" class="container">
+        <div class="row featurette">
+            <div class="col-md-5 order-md-1">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel">
+                            <img src="{% static 'productos/img/garden1.jpg'%}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 order-md-2">
+                <h2 id="nosotros"><span class="nosotros"> Sobre nosotros</span></h2>
+                <p class="lead descripcion"> Nuestra vision es ser la mejor tienda de mascotas del sector, entregando un servicio de excelencia a todos nuestros usuarios y clientes. Pensando siempre en el bienestar de toda la familia. Ser reconocidos por la gente y el resto de nuestros colegas, como una tienda especializada en el insumo de mascotas</p>
+                <h1><button type="button" class="btn btn-success btn-lg ">Contáctanos </button></h1>
+            </div>
+
+        </div>
+    </div>
+
+    <hr class="featurette-divider mt-0 ">
+
+    {%if listado_clientes %}
+    <h1 style="text-align: center; color: black;">PRODUCTOS</h1>
+    {%load humanize%}
+
+    <div class="container ">
+        <div class="container">
+            {%for p in listado_clientes %}
+
+            <div class="card productos shadow p-3 mb-5" style="width: 18rem; ">
+                {%if p.imagen %}
+                <img src="{{p.imagen.url}}" class="card-img-top" alt="...">
+                {%endif%}
+                <div class="card-body">
+                    <h5 class="card-title">{{p.nombre}}</h5>
+                    <p class="card-text">{{p.descripcion}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-success">${{p.precio|intcomma}} / CLP</li>
+
+                </ul>
+                <div class="card-body">
+                    <a href="{%url 'productos:mostrado' p.id%}" class="btn btn-success">Ir a comprar</a>
+                </div>
+            </div>
+
+            {%endfor%}
+        </div>
+    </div>
+
+    {% else %}
+    <p>No hay productos</p>
+
+    {%endif%}
+
+</body>
+
+<hr class="featurette-divider ">
+</body>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <h6>Nuestras redes sociales</h6>
+    <h4></h4>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.instagram.com/"><img
+                    src="{% static 'productos/img/instagram (1).png'%}" alt="" width="40" title="NUESTRO INSTAGRAM"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/"><img
+                    src="{% static 'productos/img/facebook-logo.png'%}" alt="" width="40" title="NUESTRO FACEBOOK"></a>
+        </li>
+        <li class="list-inline-item"><a href="https://twitter.com/?lang=es"><img
+                    src="{% static 'productos/img/twitter (1).png'%}" alt="" width="40" title="NUESTRO TWITTER"></a>
+        </li>
+    </ul>
+    <p class="mb-1">&copy; mascotas. Todos los derechos reservados</p>
+</footer>
+
+<script src="{% static 'productos/js/jquery-3.6.0.min.js'%}"></script>
+<script src="{% static 'productos/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'productos/js/hora.js'%}"></script>
+</html>

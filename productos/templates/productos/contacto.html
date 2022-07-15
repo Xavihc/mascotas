@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website with a contact Form 01</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'productos/css/contacto.css'%}">
+    <!-- GOOGLE FONTs -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="assents/css/menu.css">
+    <link rel="stylesheet" href="assents/css/boton.css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="assents/img/logo.png"/>
+</head>
+<body class="darkmode"> 
+    <div>
+        <button class="boton" id="bdark">Modo Oscuro</button>
+    </div>
+    <div class="content">
+            <h1 class="logo">Contacta<span>Nos</span></h1>
+        <div class="contact-wrapper animated bounceInUp">
+            <div class="contact-form">
+                <h3>Contactanos</h3>
+                <form id="formulario">
+                    <div id="grupo__nombre">
+                        <p>
+                            <label for="nombre">Nombre completo</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="nombre" id="nombre" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El nombre solo puede contener letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__apellidoP">
+                        <p>
+                            <label for="apellidoP">Apellido Paterno</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="apellidoP" id="apellidoP" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El apellido paterno solo puede contener letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="apellidoM">
+                        <p>
+                            <label for="apellidoM">Apellido Materno</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="apellidoM" id="apellidoM" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El apellido materno solo puede contener letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__email">
+                        <p>
+                            <label for="email">Email</label>
+                            <div class="formulario__grupo--input">
+                                <input type="email" name="email" id="email" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El Email solo puede contener letras, puntos, guiones y guion bajo </p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__rut">
+                        <p>
+                            <label for="rut">Rut</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="rut" id="rut" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El rut tiene que contener - y digito verificador</p>
+                            </dir>
+                        </p>
+                    </div>
+                    <div id="grupo__numero">
+                        <p>
+                            <label for="numero">Numero de Telefono</label>
+                            <div class="formulario__grupo--input">
+                                <input type="tel" name="phone" id="numero" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El telefono solo puede contener numeros</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__direccion">
+                        <p>
+                            <label for="direccion">Direccion</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="direccion" id="direccion" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">La direccion solo puede contener numeros y letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__postal">
+                        <p>
+                            <label for="postal">Codigo Postal</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="postal" id="postal" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">Solo puede contener numeros.</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__sexo">
+                        <p>
+                            <label for="sexo">Sexo</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="sexo" id="sexo" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El sexo solo puede contener letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div id="grupo__asunto">
+                        <p>
+                            <label for="asunto">Asunto</label>
+                            <div class="formulario__grupo--input">
+                                <input type="text" name="asunto" id="asunto" class="formulario__input">
+                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                <p class="formulario__input-error">El Asunto solo puede contener letras</p>
+                            </div>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="block">
+                        <label>Descripcion</label> 
+                            <textarea name="message" rows="3"></textarea>
+                        </p>
+                    </div>
+                    <div class="formulario__grupo" id="grupo__terminos">
+                        <label class="formulario__label">
+                            <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                            Acepto los Terminos y Condiciones
+                        </label>
+                    </div>
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+                    </div>
+                    <div>
+                    <p class="block">
+                        <button>
+                            Enviar
+                        </button>
+                    </p>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h4>Mas Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Santiago RM</li>
+                    <li><i class="fas fa-phone"></i> (+56) 9 20242829 </li>
+                    <li><i class="fas fa-envelope-open-text"></i> ProGamer@gmail.com</li>
+                </ul>
+                <p>Escribenos para poder solucionar cualquier duda.</p>
+                <p>ProGamer.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo__footer" href="index.html">
+                    <h1 class="logo__nombre no-margin">Pro<span class="logo__bold">Gamer</span></h1>
+                </a>
+    
+                <nav class="navegacion">
+                    <a href="nosotros.html" class="navegacion__enlace">Nosotros</a>
+                    <a href="tienda.html" class="navegacion__enlace">Tienda</a>
+                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+                </nav>
+            </div>        
+        </div>
+    </footer>
+
+    <script src="assents/js/modoOscuro.js"></script>
+    <script src="assents/js/contacto.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
